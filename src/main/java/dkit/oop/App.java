@@ -17,17 +17,21 @@ public class App {
         // Questions - add your answer under each heading below
         //
         // Q1a
+        List<Player> players = addPlayers();
 
 
         // Q1b
+        sortPlayersByName(players);
+        System.out.println();
 
 
         // Q1c
-
+        sortPlayersByAge(players);
+        System.out.println();
 
         // Q1d
         // Time complexity
-
+        // O(n)
 
         // Q2a
         // Write and call method: "pickProductForSale( products )"
@@ -44,6 +48,32 @@ public class App {
 
 
 
+    }
+
+    // Q1a
+    private ArrayList<Player> addPlayers() {
+        ArrayList<Player> list = new ArrayList<>();
+        list.add(new Player(1, "John Doe", 20));
+        list.add(new Player(2, "Jane Doe", 21));
+        list.add(new Player(3, "Jack Doe", 22));
+        list.add(new Player(4, "Jill Doe", 23));
+        return list;
+    }
+
+    // Q1b
+    private void sortPlayersByName(List<Player> players) {
+        List<Player> temp = players;
+        temp.sort(new NameComparator());
+        System.out.println("Sorted by name");
+        temp.forEach(System.out::println);
+    }
+
+    // Q1c
+    private void sortPlayersByAge(List<Player> players) {
+        List<Player> temp = players;
+        temp.sort(new AgeComparator());
+        System.out.println("Sorted by age");
+        temp.forEach(System.out::println);
     }
 
 
