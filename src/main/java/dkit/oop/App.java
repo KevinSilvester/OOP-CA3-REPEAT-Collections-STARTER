@@ -60,6 +60,8 @@ public class App {
 
         // Q3
         // One hundred strings
+        char c = 'J';
+        getListOfStrings(populateOneHundredStrings(), c);
 
 
 
@@ -124,6 +126,21 @@ public class App {
         queue.remove();
         queue.forEach(System.out::println);
         System.out.println();
+    }
+
+    // Q3
+    private void getListOfStrings(List<String> strings, char c) {
+        Map<Integer, String> map = new HashMap<>();
+        strings.forEach(s -> map.put(s.hashCode(), s));
+
+        List<String> res = new ArrayList<>();
+
+        for (String s : map.values()) {
+            if (s.charAt(0) == c)
+                res.add(s);
+        }
+
+        res.forEach(System.out::println);
     }
 
 
